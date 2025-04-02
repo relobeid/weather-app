@@ -3,7 +3,6 @@ import requests
 from fastapi import FastAPI, Query, HTTPException
 from dotenv import load_dotenv
 
-# Load API key from .env file
 load_dotenv()
 API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
@@ -20,7 +19,7 @@ def get_weather(city: str = Query(..., description="Enter city name")):
     params = {
         "q": city,
         "appid": API_KEY,
-        "units": "metric"  # Get temperature in Celsius
+        "units": "metric"  
     }
 
     try:

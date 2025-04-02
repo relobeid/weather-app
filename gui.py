@@ -20,11 +20,11 @@ WEATHER_ICONS = {
 # Function to determine temperature color & emojis
 def get_temp_style(temp):
     if temp <= 5:
-        return "blue", "❄️"  # Freezing
+        return "blue", "❄️"  
     elif temp <= 20:
-        return "yellow", ""  # Mild
+        return "yellow", ""  
     else:
-        return "red", "🔥"  # Hot
+        return "red", "🔥"  
 
 # Function to convert Celsius to Fahrenheit
 def convert_temperature(temp_c):
@@ -58,7 +58,7 @@ def get_weather():
                 temperature = f"{temp_c}°C"
 
             color, emoji = get_temp_style(temp_c)
-            weather_icon = WEATHER_ICONS.get(weather, "☁️")  # Default to ☁️
+            weather_icon = WEATHER_ICONS.get(weather, "☁️") 
 
             # Update labels
             temp_label.config(text=f"{emoji} {temperature} {emoji}", font=("Arial", 40, "bold"), fg=color)
@@ -72,7 +72,7 @@ root = tk.Tk()
 root.title("Weather App")
 root.geometry("350x550")
 root.resizable(False, False)
-root.configure(bg="#87CEEB")  # Light blue background
+root.configure(bg="#87CEEB")  
 
 # City Input
 city_label = tk.Label(root, text="Enter city name:", font=("Arial", 16, "italic"), bg="#87CEEB")
@@ -81,7 +81,7 @@ city_label.pack(pady=(20, 5))
 city_entry = tk.Entry(root, font=("Arial", 18), justify="center", width=20, bd=2, relief="solid", bg="lightgreen")
 city_entry.pack(pady=10)
 
-# Custom Yellow Button (Fixes Grey Background on macOS)
+# Custom Yellow Button 
 button_canvas = tk.Canvas(root, width=160, height=50, bg="#87CEEB", highlightthickness=0)
 button_canvas.pack(pady=10)
 button_rect = button_canvas.create_rectangle(5, 5, 155, 45, fill="yellow", outline="black", width=2)
@@ -112,5 +112,4 @@ condition_label.pack(pady=10)
 result_label = tk.Label(root, text="", font=("Arial", 14), bg="#87CEEB")
 result_label.pack()
 
-# Run Tkinter loop
 root.mainloop()
